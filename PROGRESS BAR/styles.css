@@ -1,0 +1,84 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto Slab', serif;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1c2333;
+    color: #f2f9fa;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+.container{
+    display: flex;
+    width: 600px;
+    height: 300px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 2.5rem;
+    background-color: #111725;
+    box-shadow: 0 5px 15px #1b2d40;
+}
+p{
+    color: #9b68e3;
+    text-align: center;
+}
+.count{
+    margin: 0 .3rem;
+    color: #ae98ee;
+    font-size: 17px;
+}
+
+/* style the progress bar */
+.progress-bar{
+    width: 100%;
+    height: 9px;
+    background-color: #273656;
+    border-radius: 100px;
+    position: relative;
+}
+.fill{
+    position: absolute;
+    width: 10%;
+    height: 9px;
+    background: linear-gradient(to right, #a768fd, #f42bf3);
+    border-radius: 100px;
+}
+
+button{
+    background: linear-gradient(to right, #a768fd, #f42bf3);
+    margin-top: .5rem;
+    border: none;
+    color: inherit;
+    font-family: 'Roboto Slab', serif;
+    padding: .5rem 2rem;
+    border-radius: 999px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 0;
+    font-size: inherit;
+    position: relative;
+}
+button::after{
+    content: "";
+    position: absolute;
+    background: #273656;
+    border-radius: inherit;
+    border: none;
+    inset: 2px;
+    z-index: -1;
+    transition: all .3s ease-in;
+}
+button:hover::after{
+    opacity: 0;
+}

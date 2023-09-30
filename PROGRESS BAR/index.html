@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar with Javascript</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <p>You have completed<span class="count">10%</span>of this course</p>
+        <div class="progress-bar">
+            <div class="fill"></div>
+        </div>
+        <button>continue</button>
+    </div>
+
+    <script>
+        const button = document.querySelector('button');
+        const fill = document.querySelector('.fill');
+        let intervalId;
+        let progressValue = 0;
+
+        button.addEventListener('click', ()=>{
+            if(button.innerText == 'continue'){
+                button.innerText = 'pause';
+                intervalId = setInterval(increase, 50);
+            } else if(button.innerText == 'pause'){
+                button.innerText = 'continue';
+                clearInterval(intervalId);
+            } else if(button.innerText == 'restart'){
+                progressValue = 0;
+                fill.style.width = '0%';
+                document.querySelector('.count').textContent = `${progressValue}%`;
+                button.textContent = 'pause';
+                intervalId = setInterval(increase, 50);
+            }
+        })
+        // the code for the increment the progress bar
+        function increase(){
+            if(progressValue < 100){
+                progressValue += 1;
+                fill.style.width = `${progressValue}%`;
+                document.querySelector('.count').textContent = `${progressValue}%`;
+            } else if(progressValue == 100){
+                clearInterval(intervalId);
+                button.textContent = 'restart'
+            }
+        }
+
+    </script>
+</body>
+</html>
