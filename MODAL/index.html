@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal with Javascript</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <button id="modal-btn" class="modal-button">Open Modal</button>
+    
+    <div id="modal-bg" class="modal-bg">
+        <div id="my-modal" class="modal-container">
+            <div class="modal-header">
+                <h3>Modal Header</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" id="close" class="close" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+            </div>
+
+            <div class="modal-content">
+                <p>This is the Modal</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, itaque omnis eligendi inventore illum hic, natus dolorem officia voluptatem corporis vero perspiciatis repellat sapiente? Accusamus aspernatur repellendus illum nihil alias!</p>
+            </div>
+            <div class="modal-footer">
+                <h3>Modal</h3>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const modal = document.querySelector('#modal-bg');
+        const modalBtn = document.querySelector('#modal-btn');
+        const closeBtn = document.querySelector('#close');
+
+        // Events
+        modalBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', outsideClick);
+
+        // Open
+        function openModal(){
+            modal.style.display = 'flex';
+        }
+        // close
+        function closeModal(){
+            modal.style.display = 'none';
+        }
+        // close if outside clicked
+        function outsideClick(e){
+            if(e.target == modal){
+                modal.style.display = 'none';
+            }
+        }
+
+    </script>
+</body>
+</html>

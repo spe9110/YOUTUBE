@@ -3,16 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 /* body */
 body{
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
     padding: 4rem 6rem;
-    transition: background .2s linear;
+    transition: background .4s linear;
 }
 body.dark{
     background-color: #000;
@@ -20,44 +21,48 @@ body.dark{
 body.dark p{
     color: #ffffff;
 }
+
+/* container */
 .container{
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     padding: 6rem 12rem;
-
 }
-.label{
+
+/* label */
+label{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    background-color: gray;
     width: 60px;
     height: 30px;
-    position: relative;
+    background-color: gray;
     border-radius: 50px;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
     padding: 5px;
-    cursor: pointer;
     transition: all .4s ease-in-out;
+    cursor: pointer;
 }
 .checkbox{
     position: absolute;
     opacity: 0;
-
 }
+
 p{
     margin-top: 4rem;
 }
-.moon, .sun{
+.sun, .moon{
+    /* position: absolute; */
     width: 1.2rem;
     margin-left: .2rem;
 }
 .sun{
-    color: #ffff;
+    color: #ffffff;
 }
 .moon{
     color: #e79727;
@@ -69,6 +74,7 @@ p{
     background-color: #ffffff;
     border-radius: 50%;
     transition: all .4s ease-in-out;
+
 }
 .ball.active{
     margin-left: 28px;
